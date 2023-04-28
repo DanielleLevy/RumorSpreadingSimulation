@@ -9,9 +9,10 @@ git clone https://github.com/DanielleLevy/RumorSpreadingSimulation.git
 
 write the following in the terminal , after each one press enter:
 
-1.cd dist
+1. cd RumorSpreadingSimulation
+2. cd dist
 
-2../RumorSpreadingSimulation.exe
+3. ./RumorSpreadingSimulation.exe
 
 
 #### second way:
