@@ -28,6 +28,7 @@ default_s2 = 30
 default_s1 = 25
 default_l = 7
 default_num_generations = 50
+default_numofruns=10
 
 #for the plot
 count_has_r=0
@@ -419,7 +420,7 @@ class Simulation:
 
 
 class GUI:
-    def __init__(self,numofruns=1):
+    def __init__(self):
         """
     The __init__ function is called when the class is instantiated.
     It sets up the window and all of its widgets, including labels, entry boxes, and buttons.
@@ -429,15 +430,13 @@ class GUI:
     :param numofruns: Determine how many times the simulation will run
     :return: The window object
     """
-        self.numruns=numofruns
         self.window = tk.Tk()
         self.window.title("Rumor Spreading Simulation")
-        self.window.geometry("750x500")
+        self.window.geometry("750x550")
         self.rumor_spreader = tk.StringVar()
         self.rumor_spreader.set("random")
         label_font = ("Arial", 18)  # Set the font for the labels
         entry_font = ("Arial", 16)  # Set the font for the entry boxes
-
 
         # Create labels and entry boxes for each parameter
         tk.Label(self.window, text="Population Density (P):",font=label_font,pady=10,anchor='w').grid(row=0, column=0)
@@ -475,9 +474,15 @@ class GUI:
         self.num_generations_entry.insert(0, str(default_num_generations))  # Set default value
         self.num_generations_entry.grid(row=6, column=1)
 
+        # Add a label and a spinbox for the number of runs
+        tk.Label(self.window, text="Number of Runs:", font=("Arial", 18), pady=10, anchor='w').grid(row=7, column=0)
+        self.num_runs = tk.Entry(self.window, font=entry_font)
+        self.num_runs.insert(0,str(default_numofruns))  # Set default value
+        self.num_runs.grid(row=7, column=1)
+
         # Create a button to start the simulation
         self.start_button = tk.Button(self.window, text="Start Simulation",font=("Arial", 16),pady=10,anchor='w', width=13, height=2, command=self.start_simulation)
-        self.start_button.grid(row=7, column=0, columnspan=2, pady=10)
+        self.start_button.grid(row=8, column=0, columnspan=2, pady=10)
         self.start_button.bind("<Enter>", self.on_enter)
         self.start_button.bind("<Leave>", self.on_leave)
 
@@ -547,6 +552,13 @@ class GUI:
                     sum+=sint
                 if not (sum==100):
                     return False
+            elif parameter == "n":
+                try:
+                    value = int(value)
+                    if not (0 < value):
+                        return False
+                except ValueError:
+                        return False
             return True
     def start_simulation(self):
         """
@@ -565,6 +577,7 @@ class GUI:
         s1 = self.s1_entry.get()
         l = self.l_entry.get()
         num_generations = self.num_generations_entry.get()
+        num_runs=self.num_runs.get()
         if not self.validate_input("p",p):
             p = default_p
             messagebox.showwarning("Invalid Input", "Invalid value for Population Density. Using default value.")
@@ -576,9 +589,17 @@ class GUI:
             messagebox.showwarning("Invalid Input",
                                    "Invalid value for Number of generations to simulate. Using default value.")
         if not self.validate_input("s", [s1,s2,s3,s4]):
-            num_generations = default_num_generations
+            s1 = default_s1
+            s2=default_s2
+            s3=default_s3
+            s4=default_s4
             messagebox.showwarning("Invalid Input",
                                    "Invalid value for S1/S2/S3/S4 to simulate. Using default value.")
+        if not self.validate_input("n", num_runs):
+            num_runs = default_numofruns
+            messagebox.showwarning("Invalid Input",
+                                   "Invalid value for Number of runs to simulate. Using default value.")
+
         p = float(p)
         s4 = float(s4)/100
         s3 = float(s3)/100
@@ -586,13 +607,15 @@ class GUI:
         s1 = float(s1)/100
         l = int(l)
         num_generations =int(num_generations)
+        num_runs=int(num_runs)
+
 
 
 
         self.simulation = Simulation(p,[s4, s3, s2, s1],num_generations,l)  # Create instance of Simulation class
 
         # Call the simulation function with the specified parameters
-        self.simulation.run_simulation(self.numruns)
+        self.simulation.run_simulation(num_runs)
 
     def run(self):
         """
@@ -727,8 +750,7 @@ The main function is the entry point of the program. It creates a GUI object and
 
 :return: The gui object
 """
-    num_of_run=10
-    gui = GUI(num_of_run)
+    gui = GUI()
     gui.run()
 
 
