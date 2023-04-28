@@ -11,9 +11,8 @@ git clone https://github.com/DanielleLevy/RumorSpreadingSimulation.git
 write the following in the terminal or powershell , after each one press enter:
 
 1. cd RumorSpreadingSimulation
-2. cd dist
 
-3. ./RumorSpreadingSimulation.exe
+2. ./RumorSpreadingSimulation.exe
 
 
 #### second way:
