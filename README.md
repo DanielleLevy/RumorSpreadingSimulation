@@ -47,3 +47,5 @@ A random person is selected from the population to start spreading a rumor accor
 4. A person who has already passed on a rumor will not pass it on again for L generations, where L is another parameter that can be varied in the research.
 After L generations, a person can pass on the rumor again if they receive it again.
 
+
+The simulation ran 10 times and finally a graph of the spread of the rumor was created, the graph is based on the average of all runs.
