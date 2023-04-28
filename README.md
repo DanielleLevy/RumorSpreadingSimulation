@@ -2,12 +2,13 @@
 
 ## Getting Started- Instructions
 Based Windows
-write the following in the terminal and press enter:
+write the following in the treminal or powershell and press enter:
+
 git clone https://github.com/DanielleLevy/RumorSpreadingSimulation.git
 ### 2 Ways to run:
 #### first way:
 
-write the following in the terminal , after each one press enter:
+write the following in the terminal or powershell , after each one press enter:
 
 1. cd RumorSpreadingSimulation
 2. cd dist
