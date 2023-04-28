@@ -1,18 +1,20 @@
 # RumorSpreadingSimulation
 
-##Getting Started- Instructions
+## Getting Started- Instructions
 Based Windows
 write the following in the terminal and press enter:
 git clone https://github.com/DanielleLevy/RumorSpreadingSimulation.git
-###2 Ways to run:
-####first way:
+### 2 Ways to run:
+#### first way:
 
-write the following in the terminal , after each one press enter: 
+write the following in the terminal , after each one press enter:
+
 1.cd dist
+
 2. ./RumorSpreadingSimulation.exe
 
 
-####second way:
+#### second way:
 
 Go to the folder where the Repo file is located, enter the DIST folder, and double-click on the EXE file.
 
