@@ -14,6 +14,12 @@ write the following in the terminal or powershell , after each one press enter:
 
 2. ./RumorSpreadingSimulation.exe
 
+##### NOTE : if yu run fron the CMD you should write: 
+
+1. cd RumorSpreadingSimulation
+
+2. RumorSpreadingSimulation.exe
+
 
 #### second way:
 
@@ -47,4 +53,4 @@ A random person is selected from the population to start spreading a rumor accor
 After L generations, a person can pass on the rumor again if they receive it again.
 
 
-The simulation ran 10 times and finally a graph of the spread of the rumor was created, the graph is based on the average of all runs.
+The simulation ran 10 times(in defult, the user can change it) and finally a graph of the spread of the rumor was created, the graph is based on the average of all runs.
