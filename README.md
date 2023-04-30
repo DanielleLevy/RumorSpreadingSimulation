@@ -14,7 +14,7 @@ write the following in the terminal or powershell , after each one press enter:
 
 2. ./RumorSpreadingSimulation.exe
 
-##### NOTE : if yu run fron the CMD you should write: 
+##### NOTE : if you run from the CMD you should write: 
 
 1. cd RumorSpreadingSimulation
 
